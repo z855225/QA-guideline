@@ -64,3 +64,39 @@ http://youtube.com/watch?v=0GypdsJulKE
 * 預期結果
 #### 附檔
 * 時間允許的情況下盡量附上圖片或影片幫助理解
+# QA 專案工作流程
+## 時程
+https://whimsical.com/sprint-8-7-NpDawUWH9TYBDfqpMfhGgJ
+## Hotfix (Day 1 ~ Day 8)
+有緊急狀況要修復，或是上個 sprint 未完成的事項，在本次 sprint 一週後會安排一個
+Hotfix  
+流程: 直接上到 alpha 給 QA 驗證 → 上到 production  
+有發生過需要 hotfix 的 bug (需求不算) 且 regression test case 沒涵蓋到，需新增 test
+case
+## Staging feature testing (Day 1 ~ Day 8)
+1. QA 產出 test case，可參考 DOD，過程中可以發現 spec 設計有無問題可即時反應給 PO
+2. 測試這個 sprint 的 features
+3. 一有 feature 完成就可以馬上交給 QA 測試
+4. 必須在 Day 8 以前開發完成所有 features 並要留 QA 測試時間，真的來不及 PO 判斷要回 backlog 或是走 hotfix
+5. 期間測出的 bug 盡量在 Staging 修復完畢，並重新測試通過，真的來不及可在下一階段的 Alpha 執行
+6. Day 8 上到 Alpha 後盡量保持 code freeze (理想狀態，如果 8 天處理不完，可能估點太樂觀)
+## Alpha integration + regression testing (Day 9 ~ Day 15)
+1. 測試這個 sprint 的 features
+2. 測試可能因新增功能而產生的舊功能 side effect
+3. 測試 P1 test case (重要的 絕對不能出錯的功能，例如 登入、註冊、播放影片 )
+4. 期間測出或 Staging 遺留的 bug 必須在 Alpha 修復完畢，並重新測試通過，真的來不及由團隊評估是否延遲 production 上線或移至 backlog 在之後的 sprint 排修 (假設有 task 在這個階段才完成，請跳過 staging，直接 merge 到 alpha 讓 QA 測試)
+## Production sanity check (Day 15)
+1. 簡單測試這個 sprint 的 features
+2. 測試 P1 test case (重要的 絕對不能出錯的功能，例如 登入、註冊、播放影片 )
+3. 排除會影響營運的測項，例如在客戶的 domain 新增課程
+## 測試期間發現的 production bug
+一樣放在目前的 sprint board + backlog 裡面，並決定是否進行 hotfix 或隨本次 sprint release 或留在 backlog 後續排修
+## 每個測試階段完成會出 QA report
+使用 asana 的 Reporting 功能，分三個圓餅圖，並再用嚴重程度細分 (S1 ~S3)
+1. 本次 sprint 新產生的 bug
+2. production 已有的舊 bug
+3. 本次 sprint 必修復的 bug (此圓餅圖清空才能 release)
+
+Staging, Alpha, Production 會有相對應的 TestRail 的 test run
+## QA 行事曆
+使用 google 行事曆讓 QA 成員知道目前要做什麼事
