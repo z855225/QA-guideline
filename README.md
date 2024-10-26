@@ -65,6 +65,8 @@ http://youtube.com/watch?v=0GypdsJulKE
 #### 附檔
 * 時間允許的情況下盡量附上圖片或影片幫助理解
 # QA 專案工作流程
+## 環境資訊
+Staging (開發環境) → Alpha (測試環境) → Production (正式環境)
 ## 時程
 https://whimsical.com/sprint-8-7-NpDawUWH9TYBDfqpMfhGgJ
 ## Hotfix (Day 1 ~ Day 8)
@@ -100,3 +102,33 @@ case
 Staging, Alpha, Production 會有相對應的 TestRail 的 test run
 ## QA 行事曆
 使用 google 行事曆讓 QA 成員知道目前要做什麼事
+# Automation Test 規劃
+## 目標
+把所有 test case 都自動化，省去 QA 手動測試 regression 的時間，進而縮短 sprint 時間，加快產品交付速度
+## 概況
+TestRail test case 連結 (隨著每個 sprint new feature 持續增加中)  
+Filter -> Automation Type -> Cypress UI，可以篩選出已自動化的 case
+## coding style
+和前端使用同一套 eslint 規則
+## 階段一
+* QA 不分手動自動，希望能互相支援
+* 已經自動化的 case 標記 Automation Type: Cypress UI，regression 手動測試就可以過濾出來排除掉
+* 先不做 API 測試，雖然金字塔理論告訴我們 API 要比較多，但是在人力有限的情況 UI 這塊還是放不掉，只要把 UI 做好也能 cover API 測試的部分
+* 先做 web UI「Smoke & Sanity」 test。test case type 會分成 「Functional」和
+「Smoke & Sanity」兩種，Functional: 有 new feature 時會做的詳細測試，Smoke &
+Sanity: regression 時做的重點大方向測試
+* 測試結果串接 TestRail 自動建立 test run。在 QA local 執行，時機點在手動測試 regression 前
+* 例行的壓力測試
+### acceptance criteria:
+「Smoke & Sanity」test case 自動化覆蓋率到 80% 以上
+## 階段二
+* 串接 QA 自己的 CI
+* 發生 fail 誤報需先隔離在 local 執行，修復穩定後再上 CI
+### acceptance criteria:
+automation fail 誤報率小於 10 %
+## 階段三
+* 和 DEV CI 串接
+實作「Functional」test case
+* App automation，再走一次階段一、階段二
+### acceptance criteria:
+維持所有 test case 自動化覆蓋率 80%，automation fail 誤報率小於 10 %
