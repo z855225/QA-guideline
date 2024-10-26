@@ -4,6 +4,8 @@
 2. 有日常愛用的產品，並常常感到不滿，覺得哪裡可以做得更好
 3. 喜歡研究、使用各種網頁、App
 4. 喜歡試用各種新服務、產品，對商業模式、功能有想法，提出改善
+<img width="1083" alt="截圖 2024-10-26 下午3 29 46" src="https://github.com/user-attachments/assets/a9619151-2f9c-49ba-a377-c4f1a9f24827">
+
 ## QA 日常
 1. 釐清這個 sprint 要做的 task，閱讀分析 PRD (Product Requirement Document)
 2. 根據 PRD 寫 test case
@@ -30,6 +32,8 @@ https://whimsical.com/qa-32xdf3sa8QVmjJ46Sd9DXC
 ## 工作流程
 sprint 為 15 天一個週期循環  
 https://whimsical.com/Pjp7VjALXQZSucHugFjkNK
+<img width="1162" alt="截圖 2024-10-26 下午3 33 25" src="https://github.com/user-attachments/assets/6873753a-efa1-49b0-8f0e-5488023bf89d">
+
 ## test case
 使用心智圖寫 test case  
 使用 TestRail 撰寫  
@@ -69,6 +73,8 @@ http://youtube.com/watch?v=0GypdsJulKE
 Staging (開發環境) → Alpha (測試環境) → Production (正式環境)
 ## 時程
 https://whimsical.com/sprint-8-7-NpDawUWH9TYBDfqpMfhGgJ
+<img width="1367" alt="截圖 2024-10-26 下午3 37 57" src="https://github.com/user-attachments/assets/916c4fa8-0f41-49c4-a7b1-5ee210d3cf9f">
+
 ## Hotfix (Day 1 ~ Day 8)
 有緊急狀況要修復，或是上個 sprint 未完成的事項，在本次 sprint 一週後會安排一個
 Hotfix  
